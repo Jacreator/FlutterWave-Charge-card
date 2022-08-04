@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::apiResource('customers', CustomerController::class);
+
+Route::apiResource('transactions', TransactionController::class);
+
+Route::get('/transactions/callback', [TransactionController::class, 'callback'])->name('transactions.callback');
+
+Route::get('/customers/{customer}/transaction', [CustomerController::class, 'customerTransactions']);

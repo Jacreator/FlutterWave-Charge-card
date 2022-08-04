@@ -123,6 +123,11 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+    'FLW_ENCRYPTION_KEY' => env('FLW_ENCRYPTION_KEY'),
+    'FLW_PUBLIC_KEY' => env('FLW_PUBLIC_KEY'),
+    'FLW_SECRET_KEY' => env('FLW_SECRET_KEY'),
+    'FLW_SECRET_HASH' => env('FLW_SECRET_HASH'),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
@@ -174,6 +179,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        KingFlamez\Rave\RaveServiceProvider::class,
 
     ],
 
@@ -229,7 +235,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'Rave' => KingFlamez\Rave\Facades\Rave::class,
     ],
 
 ];
