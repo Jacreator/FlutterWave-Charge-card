@@ -58,7 +58,7 @@ class TransactionController extends Controller
             'message' => 'Transaction retrieved successfully',
             'statusCode' => Response::HTTP_FOUND,
             'data' => $this->transactionService->getTransaction($id)
-        ]);
+        ], Response::HTTP_FOUND);
     }
 
     private function dataToStore($request)
@@ -70,7 +70,7 @@ class TransactionController extends Controller
             'currency' => 'NGN',
             'email' => $request->email,
             'customer' => [
-                'name' => $request->lastName,
+                'name' => $request->name,
                 'email' => $request->email,
                 'phone_number' => $request->phoneNumber,
                 
