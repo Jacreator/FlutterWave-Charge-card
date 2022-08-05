@@ -38,7 +38,6 @@ class TransactionTest extends TestCase
         $transaction = Transaction::factory()->create();
         $response = $this->get('/api/transactions/' . $transaction->id);
 
-
         $response->assertStatus(Response::HTTP_FOUND);
         $response->assertJson([
             'data' => [
